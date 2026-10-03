@@ -52,6 +52,11 @@ Cli层 仅负责控制台 I/O（参数解析、输出格式化、颜色）。
 提交信息中禁止出现任何工具或助手署名，包括 `Co-authored-by`、`Generated-by`、`Assisted-by` 等尾注行。
 提交信息只描述变更本身，不得把 Agent、Copilot、机器人写入作者、合著者或贡献者信息。
 
-
 ### 10. 版本号唯一来源规则
 项目主目录需要一个文件指定所有地方使用的版本号，实现项目版本号唯一来源
+
+### 11. Pwsh版本选择规则
+当Pwsh(.Net / PowerShell 7+)存在时，禁止调用和使用任何PowerShell(NET Framework / PowerShell 5)
+调用 PowerShell 时必须明确使用 pwsh.exe，不得依赖当前环境的默认 PowerShell 解释器。
+若任务明确要求 Windows PowerShell 5.1，或目标模块/系统组件明确仅支持 Windows PowerShell 5.1，则允许例外调用 powershell.exe，但必须明确说明原因。
+若当前环境不存在Pwsh(.Net / PowerShell 7+)，则显式提示并协助用户安装全局安装。
